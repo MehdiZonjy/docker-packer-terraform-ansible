@@ -1,0 +1,21 @@
+name: CI
+
+on:
+ repository_dispatch:
+   types: build-infra-image
+
+jobs:
+  publishInfraImage:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v1
+    - name: Publish Infra Image
+      uses: elgohr/Publish-Docker-Github-Action@master
+      with:
+        name: mehdizonjy/packer-terraform-ansible
+        username: ${{ secrets.DOCKER_USER }}
+        password: ${{ secrets.DOCKER_PASSWORD }}
+        dockerfile: infra.dockerfile
+        workdir: docker
