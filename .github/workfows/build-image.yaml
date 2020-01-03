@@ -1,9 +1,9 @@
 name: CI
 
 on:
- repository_dispatch:
-   types: build-infra-image
-
+  push:
+    branches:
+      - master
 jobs:
   publishInfraImage:
 
