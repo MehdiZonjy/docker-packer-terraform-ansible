@@ -17,5 +17,3 @@ jobs:
         name: mehdizonjy/packer-terraform-ansible
         username: ${{ secrets.DOCKER_USER }}
         password: ${{ secrets.DOCKER_PASSWORD }}
-        dockerfile: infra.dockerfile
-        workdir: docker
